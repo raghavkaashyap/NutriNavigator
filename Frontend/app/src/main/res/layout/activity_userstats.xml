@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FAFAFA">
+
+    <!-- Title for User Statistics -->
+    <TextView
+        android:id="@+id/titleUserStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Statistics"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <!-- Container for statistics fields -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Year To Date -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/yearToDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Year To Date:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/yearToDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Last 6 Months -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/last6MonthsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last 6 Months:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/last6MonthsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Last Year -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/lastYearLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Year:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/lastYearValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- This Month -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/thisMonthLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This Month:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/thisMonthValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- This Week -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/thisWeekLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This Week:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/thisWeekValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Follower Count -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/followerCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follower Count:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/followerCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Following Count -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/followingCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Following Count:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/followingCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Average Calories -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <TextView
+                android:id="@+id/averageCaloriesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Average Calories:"
+                android:textColor="#333"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/averageCaloriesValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="#333"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Refresh Button -->
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Refresh"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"/>
+
+    <!-- Back Button at the bottom -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Back"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

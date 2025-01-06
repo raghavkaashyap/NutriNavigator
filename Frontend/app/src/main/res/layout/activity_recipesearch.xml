@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editUploadUser"
+        android:layout_width="381dp"
+        android:layout_height="55dp"
+        android:hint="Upload User" />
+
+    <EditText
+        android:id="@+id/editIngredients"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:hint="List Ingredients" />
+
+    <EditText
+        android:id="@+id/editCaloriesLow"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:hint="Calories low" />
+
+    <EditText
+        android:id="@+id/editCaloriesHigh"
+        android:layout_width="381dp"
+        android:layout_height="57dp"
+        android:hint="Calories high" />
+
+    <EditText
+        android:id="@+id/editDateStart"
+        android:layout_width="381dp"
+        android:layout_height="55dp"
+        android:hint="Start Date" />
+
+    <EditText
+        android:id="@+id/editDateEnd"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:hint="End Date" />
+
+    <Button
+        android:id="@+id/btn_dietaryPreferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Dietary Preferences" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,87 @@
+<!--<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/editComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write comment"
+        android:inputType="textMultiLine"
+        android:minLines="3" />
+
+    <Button
+        android:id="@+id/addComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Comment" />
+
+
+</LinearLayout>
+
+-->
+
+<!-- res/layout/activity_comments.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your comment"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btn_submit_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Comment" />
+
+    <Button
+        android:id="@+id/btn_update_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Comment" />
+
+    <Button
+        android:id="@+id/btn_delete_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Comment" />
+
+    <Button
+        android:id="@+id/btn_delete_comments_by_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Comments By Recipe" />
+
+    <Button
+        android:id="@+id/btn_delete_comments_by_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Comments By User" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_comments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
+

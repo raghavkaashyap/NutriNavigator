@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:textSize="16sp" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Recipe"
+        android:textSize="16sp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search for a recipe" />
+
+    <Button
+        android:id="@+id/btnSavePlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Plan"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

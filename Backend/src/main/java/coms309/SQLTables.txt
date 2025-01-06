@@ -1,0 +1,141 @@
+
+------------USERS TABLE-----------
+CREATE TABLE IF NOT EXISTS users(
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(255) UNIQUE NOT NULL,
+passwordHash VARCHAR(255) NOT NULL,
+usertype TINYINT NOT NULL,
+email VARCHAR(255) NOT NULL,
+ban_time BIGINT,
+date_created BIGINT,
+last_login BIGINT);
+
+-----------Encryption Keys Table------------
+CREATE TABLE IF NOT EXISTS encryption_keys(
+id INT AUTO_INCREMENT PRIMARY KEY,
+user_id VARCHAR(255) UNIQUE NOT NULL,
+encryption_key VARCHAR(255) NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(username));
+
+---------------Admin Messages Table----------------
+CREATE TABLE IF NOT EXISTS admin_messages(
+id INT AUTO_INCREMENT PRIMARY KEY,
+resolved INT NOT NULL,
+user_submitted VARCHAR(255) NOT NULL,
+subject VARCHAR(255) NOT NULL,
+message VARCHAR(255) NOT NULL,
+date_submitted BIGINT NOT NULL,
+date_resolved BIGINT NOT NULL,
+user_resolved VARCHAR(255));
+
+----------Tokens Table------------------
+CREATE TABLE IF NOT EXISTS active_tokens(
+id INT AUTO_INCREMENT PRIMARY KEY,
+user_id VARCHAR(255) UNIQUE NOT NULL,
+token VARCHAR(255) NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(username));
+
+-----------following_users Table--------------
+CREATE TABLE IF NOT EXISTS following_users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    follower INT NOT NULL,
+    following INT NOT NULL,
+    FOREIGN KEY (following) REFERENCES users(id));
+
+------------popular_recipes_log Table-------------
+CREATE TABLE IF NOT EXISTS popular_recipes_log(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipeId INT NOT NULL,
+    pulls INT NOT NULL,
+    date_logged DATE NOT NULL);
+
+----------------plans Table----------------------
+CREATE TABLE IF NOT EXISTS plans(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    recipeId INT NOT NULL,
+    plannedDate DATE NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeID));
+
+-----------Recipes Table-------------------
+CREATE TABLE IF NOT EXISTS Recipes (
+    recipeID INT PRIMARY KEY AUTO_INCREMENT,
+    recipe VARCHAR(255) NOT NULL,
+    ingredients varchar(255) NOT NULL,
+    calories INT
+);
+---Alter to store date---------
+ALTER TABLE Recipes ADD COLUMN date_added DATE;
+
+---------User_Recipes join Table----------------
+CREATE TABLE IF NOT EXISTS User_Recipes ( 
+    recipeID INT, 
+    id INT, 
+    PRIMARY KEY(recipeID, id), 
+    FOREIGN KEY (recipeID) REFERENCES Recipes(recipeID), 
+    FOREIGN KEY (id) REFERENCES users(id)
+);
+
+
+---------------dietary_restrictions Table--------------
+CREATE TABLE IF NOT EXISTS dietary_restrictions(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    enum_value VARCHAR(20) NOT NULL UNIQUE);
+
+---------------dietary_preferences Table--------------
+CREATE TABLE IF NOT EXISTS dietary_preferences(
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   enum_value VARCHAR(20) NOT NULL UNIQUE);
+
+INSERT INTO dietary_preferences (enum_value) VALUES ('VEGETARIAN'), ('VEGAN'), ('ORGANIC'), ('LOW_CARB'), ('KETO');
+INSERT INTO dietary_restrictions (enum_value) VALUES ('GLUTEN_FREE'), ('LACTOSE_FREE'), ('FISH_FREE'), ('SHELLFISH_FREE'), ('NUT_FREE'), ('WHEAT_FREE'), ('SOYBEAN_FREE');
+
+----------------restrictions join table------------
+CREATE TABLE IF NOT EXISTS restrictions_join(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipeId INT NOT NULL,
+    enum INT NOT NULL,
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeID),
+    FOREIGN KEY (enum) REFERENCES dietary_preferences(id));
+
+----------------preferences join table------------
+CREATE TABLE IF NOT EXISTS preferences_join(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipeId INT NOT NULL,
+    enum INT NOT NULL,
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeID),
+    FOREIGN KEY (enum) REFERENCES dietary_restrictions(id));
+
+--------------------Comments and users join--------------
+CREATE TABLE IF NOT EXISTS Comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    commenterUsername VARCHAR(255) NOT NULL,
+    recipeOwnerUsername VARCHAR(255) NOT NULL,
+    recipeId INT NOT NULL,
+    comment VARCHAR(1000) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (commenterUsername) REFERENCES users(username),
+    FOREIGN KEY (recipeOwnerUsername) REFERENCES users(username),
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeID)
+);
+
+--------------------Bookmarks-------------------
+CREATE TABLE IF NOT EXISTS Bookmarks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    recipeId INT NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username),
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeId)
+);
+
+-------------------Ratings------------------------
+CREATE TABLE IF NOT EXISTS RecipeRatings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipeId INT NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    rating TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    date_rated DATE NOT NULL,
+    FOREIGN KEY (recipeId) REFERENCES Recipes(recipeId),
+    FOREIGN KEY (username) REFERENCES users(username)
+);
